@@ -23,6 +23,7 @@ public class Conexion {
         String url = "jdbc:mysql://localhost:3306/libreria";
         String usuario = "root";
         String contraseña = "06Villegas#ñTorres2004";
+        int con=1234;
         try {
 
             Connection conexion = DriverManager.getConnection(url, usuario, contraseña);
