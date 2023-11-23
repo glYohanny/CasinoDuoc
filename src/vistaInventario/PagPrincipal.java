@@ -45,7 +45,16 @@ public class PagPrincipal extends javax.swing.JFrame {
         limpiarBotones = new javax.swing.JButton();
         agregado = new javax.swing.JLabel();
         PanelMostrar = new javax.swing.JPanel();
+        jLabel1 = new javax.swing.JLabel();
+        idtxt = new javax.swing.JTextField();
+        jButton1 = new javax.swing.JButton();
+        jScrollPane2 = new javax.swing.JScrollPane();
+        jTable1 = new javax.swing.JTable();
+        jButton2 = new javax.swing.JButton();
         PanelEliminar = new javax.swing.JPanel();
+        jLabel7 = new javax.swing.JLabel();
+        eliminarProducto = new javax.swing.JTextField();
+        confirmacionEl = new javax.swing.JLabel();
         PanelModificar = new javax.swing.JPanel();
         jPanel5 = new javax.swing.JPanel();
         agregarP = new javax.swing.JButton();
@@ -197,30 +206,103 @@ public class PagPrincipal extends javax.swing.JFrame {
 
         PanelMostrar.setBackground(new java.awt.Color(255, 153, 0));
 
+        jLabel1.setText("ID PRODUCTO");
+
+        idtxt.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                idtxtActionPerformed(evt);
+            }
+        });
+
+        jButton1.setText("Mostrar");
+        jButton1.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jButton1ActionPerformed(evt);
+            }
+        });
+
+        jTable1.setModel(new javax.swing.table.DefaultTableModel(
+            new Object [][] {
+                {null, null, null, null},
+                {null, null, null, null},
+                {null, null, null, null},
+                {null, null, null, null}
+            },
+            new String [] {
+                "Title 1", "Title 2", "Title 3", "Title 4"
+            }
+        ));
+        jScrollPane2.setViewportView(jTable1);
+
+        jButton2.setText("Limpiar");
+
         javax.swing.GroupLayout PanelMostrarLayout = new javax.swing.GroupLayout(PanelMostrar);
         PanelMostrar.setLayout(PanelMostrarLayout);
         PanelMostrarLayout.setHorizontalGroup(
             PanelMostrarLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 834, Short.MAX_VALUE)
+            .addGroup(PanelMostrarLayout.createSequentialGroup()
+                .addGap(33, 33, 33)
+                .addGroup(PanelMostrarLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
+                    .addGroup(PanelMostrarLayout.createSequentialGroup()
+                        .addComponent(jButton2)
+                        .addGap(576, 576, 576)
+                        .addComponent(jButton1))
+                    .addGroup(PanelMostrarLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                        .addComponent(jScrollPane2, javax.swing.GroupLayout.PREFERRED_SIZE, 728, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addGroup(PanelMostrarLayout.createSequentialGroup()
+                            .addComponent(jLabel1)
+                            .addGap(33, 33, 33)
+                            .addComponent(idtxt, javax.swing.GroupLayout.PREFERRED_SIZE, 131, javax.swing.GroupLayout.PREFERRED_SIZE))))
+                .addGap(0, 73, Short.MAX_VALUE))
         );
         PanelMostrarLayout.setVerticalGroup(
             PanelMostrarLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 971, Short.MAX_VALUE)
+            .addGroup(PanelMostrarLayout.createSequentialGroup()
+                .addGap(39, 39, 39)
+                .addGroup(PanelMostrarLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(idtxt, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(jLabel1))
+                .addGap(18, 18, 18)
+                .addComponent(jScrollPane2, javax.swing.GroupLayout.PREFERRED_SIZE, 245, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(31, 31, 31)
+                .addGroup(PanelMostrarLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(jButton1)
+                    .addComponent(jButton2))
+                .addContainerGap(585, Short.MAX_VALUE))
         );
 
         jTabbedPane1.addTab("tab2", PanelMostrar);
 
         PanelEliminar.setBackground(new java.awt.Color(255, 153, 0));
 
+        jLabel7.setText("ID PRODUCTO A ELIMINAR");
+
         javax.swing.GroupLayout PanelEliminarLayout = new javax.swing.GroupLayout(PanelEliminar);
         PanelEliminar.setLayout(PanelEliminarLayout);
         PanelEliminarLayout.setHorizontalGroup(
             PanelEliminarLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 834, Short.MAX_VALUE)
+            .addGroup(PanelEliminarLayout.createSequentialGroup()
+                .addGroup(PanelEliminarLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addGroup(PanelEliminarLayout.createSequentialGroup()
+                        .addGap(42, 42, 42)
+                        .addComponent(jLabel7)
+                        .addGap(18, 18, 18)
+                        .addComponent(eliminarProducto, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addGroup(PanelEliminarLayout.createSequentialGroup()
+                        .addGap(68, 68, 68)
+                        .addComponent(confirmacionEl, javax.swing.GroupLayout.PREFERRED_SIZE, 676, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                .addContainerGap(90, Short.MAX_VALUE))
         );
         PanelEliminarLayout.setVerticalGroup(
             PanelEliminarLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 971, Short.MAX_VALUE)
+            .addGroup(PanelEliminarLayout.createSequentialGroup()
+                .addGap(44, 44, 44)
+                .addGroup(PanelEliminarLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(jLabel7)
+                    .addComponent(eliminarProducto, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addGap(57, 57, 57)
+                .addComponent(confirmacionEl, javax.swing.GroupLayout.PREFERRED_SIZE, 49, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addContainerGap(795, Short.MAX_VALUE))
         );
 
         jTabbedPane1.addTab("tab3", PanelEliminar);
@@ -336,15 +418,15 @@ public class PagPrincipal extends javax.swing.JFrame {
     }// </editor-fold>//GEN-END:initComponents
 
     private void mostrarPActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_mostrarPActionPerformed
-        jTabbedPane1.setSelectedIndex(0);
+        jTabbedPane1.setSelectedIndex(2);
     }//GEN-LAST:event_mostrarPActionPerformed
 
     private void eliminarPActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_eliminarPActionPerformed
-        jTabbedPane1.setSelectedIndex(1);
+        jTabbedPane1.setSelectedIndex(3);
     }//GEN-LAST:event_eliminarPActionPerformed
 
     private void agregarPActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_agregarPActionPerformed
-       jTabbedPane1.setSelectedIndex(2);
+       jTabbedPane1.setSelectedIndex(0);
     }//GEN-LAST:event_agregarPActionPerformed
 
     private void modificarPActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_modificarPActionPerformed
@@ -377,12 +459,20 @@ public class PagPrincipal extends javax.swing.JFrame {
         String nombre=nombreProducto.getText();
         String precio=precioProducto.getText();
         String cantidad=cantidadProducto.getText();
-        if(categoria!="" && nombre!="" && precio!="" && cantidad!=""){
-            agregado.setText("Producto no agregado");
+        if(!categoria.equals("")&& !nombre.equals("")&& !precio.equals("") && !cantidad.equals("")){
+            agregado.setText("Producto agregado correctamente");
         }else{
-               agregado.setText("Producto agregado correctamente") ;
+               agregado.setText("Producto no agregado");
                 }
     }//GEN-LAST:event_agregarProductoActionPerformed
+
+    private void idtxtActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_idtxtActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_idtxtActionPerformed
+
+    private void jButton1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton1ActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_jButton1ActionPerformed
 
     /**
      * @param args the command line arguments
@@ -429,18 +519,27 @@ public class PagPrincipal extends javax.swing.JFrame {
     private javax.swing.JButton agregarProducto;
     private javax.swing.JTextField cantidadProducto;
     private javax.swing.JTextField categoriaProducto;
+    private javax.swing.JLabel confirmacionEl;
     private javax.swing.JButton eliminarP;
+    private javax.swing.JTextField eliminarProducto;
+    private javax.swing.JTextField idtxt;
     private javax.swing.JTextField imagenProducto;
+    private javax.swing.JButton jButton1;
+    private javax.swing.JButton jButton2;
+    private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel jLabel2;
     private javax.swing.JLabel jLabel3;
     private javax.swing.JLabel jLabel4;
     private javax.swing.JLabel jLabel5;
     private javax.swing.JLabel jLabel6;
+    private javax.swing.JLabel jLabel7;
     private javax.swing.JList<String> jList1;
     private javax.swing.JPanel jPanel4;
     private javax.swing.JPanel jPanel5;
     private javax.swing.JScrollPane jScrollPane1;
+    private javax.swing.JScrollPane jScrollPane2;
     private javax.swing.JTabbedPane jTabbedPane1;
+    private javax.swing.JTable jTable1;
     private javax.swing.JButton limpiarBotones;
     private javax.swing.JButton modificarP;
     private javax.swing.JButton mostrarP;
