@@ -31,6 +31,19 @@ public class PagPrincipal extends javax.swing.JFrame {
         jPanel4 = new javax.swing.JPanel();
         jTabbedPane1 = new javax.swing.JTabbedPane();
         PanelAgregar = new javax.swing.JPanel();
+        jLabel2 = new javax.swing.JLabel();
+        jLabel3 = new javax.swing.JLabel();
+        jLabel4 = new javax.swing.JLabel();
+        jLabel5 = new javax.swing.JLabel();
+        jLabel6 = new javax.swing.JLabel();
+        nombreProducto = new javax.swing.JTextField();
+        categoriaProducto = new javax.swing.JTextField();
+        precioProducto = new javax.swing.JTextField();
+        cantidadProducto = new javax.swing.JTextField();
+        imagenProducto = new javax.swing.JTextField();
+        agregarProducto = new javax.swing.JButton();
+        limpiarBotones = new javax.swing.JButton();
+        agregado = new javax.swing.JLabel();
         PanelMostrar = new javax.swing.JPanel();
         PanelEliminar = new javax.swing.JPanel();
         PanelModificar = new javax.swing.JPanel();
@@ -55,15 +68,129 @@ public class PagPrincipal extends javax.swing.JFrame {
         PanelAgregar.setBackground(new java.awt.Color(255, 153, 0));
         PanelAgregar.setPreferredSize(new java.awt.Dimension(850, 970));
 
+        jLabel2.setText("Ingrese la categoría del producto");
+
+        jLabel3.setText("Ingrese el nombre del producto");
+
+        jLabel4.setText("Ingrese el precio del producto");
+
+        jLabel5.setText("Ingrese la cantidad del producto");
+
+        jLabel6.setText("Ingrese la imagen del producto");
+
+        nombreProducto.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                nombreProductoActionPerformed(evt);
+            }
+        });
+
+        categoriaProducto.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                categoriaProductoActionPerformed(evt);
+            }
+        });
+
+        precioProducto.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                precioProductoActionPerformed(evt);
+            }
+        });
+
+        cantidadProducto.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                cantidadProductoActionPerformed(evt);
+            }
+        });
+
+        imagenProducto.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                imagenProductoActionPerformed(evt);
+            }
+        });
+
+        agregarProducto.setText("Agregar");
+        agregarProducto.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                agregarProductoActionPerformed(evt);
+            }
+        });
+
+        limpiarBotones.setText("Limpiar");
+
+        agregado.setText("jLabel1");
+
         javax.swing.GroupLayout PanelAgregarLayout = new javax.swing.GroupLayout(PanelAgregar);
         PanelAgregar.setLayout(PanelAgregarLayout);
         PanelAgregarLayout.setHorizontalGroup(
             PanelAgregarLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 834, Short.MAX_VALUE)
+            .addGroup(PanelAgregarLayout.createSequentialGroup()
+                .addGroup(PanelAgregarLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addGroup(PanelAgregarLayout.createSequentialGroup()
+                        .addGap(69, 69, 69)
+                        .addGroup(PanelAgregarLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                            .addGroup(PanelAgregarLayout.createSequentialGroup()
+                                .addComponent(jLabel2)
+                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                                .addComponent(categoriaProducto, javax.swing.GroupLayout.PREFERRED_SIZE, 149, javax.swing.GroupLayout.PREFERRED_SIZE))
+                            .addGroup(PanelAgregarLayout.createSequentialGroup()
+                                .addGroup(PanelAgregarLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                                    .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, PanelAgregarLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                                        .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, PanelAgregarLayout.createSequentialGroup()
+                                            .addGroup(PanelAgregarLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                                                .addComponent(jLabel4)
+                                                .addComponent(jLabel3))
+                                            .addGap(18, 18, 18))
+                                        .addGroup(PanelAgregarLayout.createSequentialGroup()
+                                            .addComponent(jLabel5)
+                                            .addGap(14, 14, 14)))
+                                    .addGroup(PanelAgregarLayout.createSequentialGroup()
+                                        .addComponent(jLabel6)
+                                        .addGap(20, 20, 20)))
+                                .addGroup(PanelAgregarLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
+                                    .addComponent(cantidadProducto)
+                                    .addComponent(nombreProducto)
+                                    .addComponent(precioProducto, javax.swing.GroupLayout.DEFAULT_SIZE, 149, Short.MAX_VALUE)
+                                    .addComponent(imagenProducto))))
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 142, Short.MAX_VALUE)
+                        .addComponent(agregado, javax.swing.GroupLayout.PREFERRED_SIZE, 202, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addGroup(PanelAgregarLayout.createSequentialGroup()
+                        .addGap(96, 96, 96)
+                        .addComponent(limpiarBotones)
+                        .addGap(403, 403, 403)
+                        .addComponent(agregarProducto)))
+                .addGap(87, 87, 87))
         );
         PanelAgregarLayout.setVerticalGroup(
             PanelAgregarLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 971, Short.MAX_VALUE)
+            .addGroup(PanelAgregarLayout.createSequentialGroup()
+                .addGap(62, 62, 62)
+                .addGroup(PanelAgregarLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
+                    .addGroup(PanelAgregarLayout.createSequentialGroup()
+                        .addGroup(PanelAgregarLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                            .addComponent(jLabel2)
+                            .addComponent(categoriaProducto, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                        .addGroup(PanelAgregarLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                            .addComponent(jLabel3)
+                            .addComponent(nombreProducto, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                        .addGroup(PanelAgregarLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                            .addComponent(jLabel4)
+                            .addComponent(precioProducto, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                    .addComponent(agregado, javax.swing.GroupLayout.PREFERRED_SIZE, 124, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addGroup(PanelAgregarLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(jLabel5)
+                    .addComponent(cantidadProducto, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addGroup(PanelAgregarLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(jLabel6)
+                    .addComponent(imagenProducto, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addGap(64, 64, 64)
+                .addGroup(PanelAgregarLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(limpiarBotones)
+                    .addComponent(agregarProducto))
+                .addContainerGap(630, Short.MAX_VALUE))
         );
 
         jTabbedPane1.addTab("tab1", PanelAgregar);
@@ -114,6 +241,7 @@ public class PagPrincipal extends javax.swing.JFrame {
         jPanel5.setBackground(new java.awt.Color(0, 0, 153));
         jPanel5.setPreferredSize(new java.awt.Dimension(850, 75));
 
+        agregarP.setBackground(new java.awt.Color(218, 160, 47));
         agregarP.setText("AGREGAR PRODUCTO");
         agregarP.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -128,6 +256,7 @@ public class PagPrincipal extends javax.swing.JFrame {
             }
         });
 
+        mostrarP.setBackground(new java.awt.Color(192, 157, 33));
         mostrarP.setText("MOSTRAR PRODUCTOS");
         mostrarP.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -222,6 +351,39 @@ public class PagPrincipal extends javax.swing.JFrame {
        jTabbedPane1.setSelectedIndex(3);
     }//GEN-LAST:event_modificarPActionPerformed
 
+    private void nombreProductoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_nombreProductoActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_nombreProductoActionPerformed
+
+    private void categoriaProductoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_categoriaProductoActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_categoriaProductoActionPerformed
+
+    private void precioProductoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_precioProductoActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_precioProductoActionPerformed
+
+    private void cantidadProductoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_cantidadProductoActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_cantidadProductoActionPerformed
+
+    private void imagenProductoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_imagenProductoActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_imagenProductoActionPerformed
+
+    private void agregarProductoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_agregarProductoActionPerformed
+        //Agregar todos los detalles del producto
+        String categoria=categoriaProducto.getText();
+        String nombre=nombreProducto.getText();
+        String precio=precioProducto.getText();
+        String cantidad=cantidadProducto.getText();
+        if(categoria!="" && nombre!="" && precio!="" && cantidad!=""){
+            agregado.setText("Producto no agregado");
+        }else{
+               agregado.setText("Producto agregado correctamente") ;
+                }
+    }//GEN-LAST:event_agregarProductoActionPerformed
+
     /**
      * @param args the command line arguments
      */
@@ -262,14 +424,27 @@ public class PagPrincipal extends javax.swing.JFrame {
     private javax.swing.JPanel PanelEliminar;
     private javax.swing.JPanel PanelModificar;
     private javax.swing.JPanel PanelMostrar;
+    private javax.swing.JLabel agregado;
     private javax.swing.JButton agregarP;
+    private javax.swing.JButton agregarProducto;
+    private javax.swing.JTextField cantidadProducto;
+    private javax.swing.JTextField categoriaProducto;
     private javax.swing.JButton eliminarP;
+    private javax.swing.JTextField imagenProducto;
+    private javax.swing.JLabel jLabel2;
+    private javax.swing.JLabel jLabel3;
+    private javax.swing.JLabel jLabel4;
+    private javax.swing.JLabel jLabel5;
+    private javax.swing.JLabel jLabel6;
     private javax.swing.JList<String> jList1;
     private javax.swing.JPanel jPanel4;
     private javax.swing.JPanel jPanel5;
     private javax.swing.JScrollPane jScrollPane1;
     private javax.swing.JTabbedPane jTabbedPane1;
+    private javax.swing.JButton limpiarBotones;
     private javax.swing.JButton modificarP;
     private javax.swing.JButton mostrarP;
+    private javax.swing.JTextField nombreProducto;
+    private javax.swing.JTextField precioProducto;
     // End of variables declaration//GEN-END:variables
 }
