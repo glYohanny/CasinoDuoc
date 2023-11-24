@@ -5,7 +5,9 @@
 
 package inventarioduoc;
 
-import conexionBd.Conexion;
+import conexionBaseDeDatos.Conexion;
+
+
 
 /**
  *
@@ -18,6 +20,7 @@ public class InventarioDuoc {
      */
     public static void main(String[] args) {
         Conexion con=new Conexion();
+        con.conexionBD();
     }
     
 }
