@@ -13,6 +13,9 @@ import java.sql.SQLException;
  * @author pedro
  */
 public class Conexion {
+
+    public Conexion() {
+    }
     
      public Connection conexionBD() {
         String url = "jdbc:mysql://localhost:3306/libreria";

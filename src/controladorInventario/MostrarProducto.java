@@ -9,13 +9,14 @@ import java.sql.Connection;
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 import java.sql.SQLException;
+import javax.swing.JTable;
+import javax.swing.table.DefaultTableModel;
 
 /**
  *
  * @author pedro
  */
 public class MostrarProducto extends Registro {
-    
     Conexion conex = new Conexion();
     Connection con = conex.conexionBD();
     String listaSql = "select*from producto.producto";
@@ -23,20 +24,22 @@ public class MostrarProducto extends Registro {
 
     public MostrarProducto() {
     }
-    
-    
-    
-    public void mostrar() {
+
+    public void mostrar(DefaultTableModel model,JTable tabla) {
         try {
             preparar = con.prepareStatement(listaSql);
             ResultSet set = preparar.executeQuery();
+            Object [] producto=new Object[5];
+            
             while (set.next()) {
-                System.out.println(set.getString(1));
-                System.out.println(set.getString(2));
-                System.out.println(set.getString(3));
-                System.out.println(set.getString(4));
-                System.out.println(set.getString(5));
+                producto[0]=set.getInt(1);
+                producto[1]=set.getString(2);
+                producto[2]=set.getInt(3);
+                producto[3]=set.getInt(4);
+                producto[4]=set.getString(5);
+                model.addRow(producto);
             }
+            tabla.setModel(model);
             preparar.close();
             con.close();
 
@@ -44,5 +47,5 @@ public class MostrarProducto extends Registro {
             System.out.println("error: " + ex.getMessage());
         }
     }
-    
+
 }

@@ -18,20 +18,21 @@ public class InsertarProducto extends Registro {
 
     Conexion conex = new Conexion();
     Connection con = conex.conexionBD();
-    String insertSql = "insert into producto(nombre,precio,cantidad)values(?,?,?,?)";
+    String insertSql = "insert into producto.producto(nombre,precio,cantidad,clase)values(?,?,?,?)";
     PreparedStatement preparar = null;
 
     public InsertarProducto() {
     }
 
     
-    public void InsertarProducto() {
+    public void InsertarProducto(String nomProc,int preProc,int canProc,String clasProc) {
         try {
             preparar = con.prepareStatement(insertSql);
-            preparar.setInt(1, 76);
-            preparar.setString(2, "el gato con hojas");
-            preparar.setString(3, "jose matagato");
-            preparar.setInt(4, 500000);
+            preparar.setString(1, nomProc);          
+            preparar.setInt(2, preProc);
+             preparar.setInt(3, canProc);
+             preparar.setString(4, clasProc);
+             
             preparar.executeUpdate();
             preparar.close();
             con.close();
