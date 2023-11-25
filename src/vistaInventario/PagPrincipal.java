@@ -37,6 +37,11 @@ public class PagPrincipal extends javax.swing.JFrame {
         jScrollPane1 = new javax.swing.JScrollPane();
         jList1 = new javax.swing.JList<>();
         jPanel4 = new javax.swing.JPanel();
+        jPanel5 = new javax.swing.JPanel();
+        agregarP = new javax.swing.JButton();
+        eliminarP = new javax.swing.JButton();
+        mostrarP = new javax.swing.JButton();
+        modificarP = new javax.swing.JButton();
         jTabbedPane1 = new javax.swing.JTabbedPane();
         PanelAgregar = new javax.swing.JPanel();
         jLabel2 = new javax.swing.JLabel();
@@ -66,11 +71,6 @@ public class PagPrincipal extends javax.swing.JFrame {
         jScrollPane2 = new javax.swing.JScrollPane();
         jTable1 = new javax.swing.JTable();
         PanelModificar = new javax.swing.JPanel();
-        jPanel5 = new javax.swing.JPanel();
-        agregarP = new javax.swing.JButton();
-        eliminarP = new javax.swing.JButton();
-        mostrarP = new javax.swing.JButton();
-        modificarP = new javax.swing.JButton();
 
         jList1.setModel(new javax.swing.AbstractListModel<String>() {
             String[] strings = { "Item 1", "Item 2", "Item 3", "Item 4", "Item 5" };
@@ -83,6 +83,63 @@ public class PagPrincipal extends javax.swing.JFrame {
         setBackground(new java.awt.Color(255, 153, 0));
 
         jPanel4.setBackground(new java.awt.Color(0, 0, 0));
+
+        jPanel5.setBackground(new java.awt.Color(0, 0, 153));
+        jPanel5.setPreferredSize(new java.awt.Dimension(850, 75));
+
+        agregarP.setBackground(new java.awt.Color(218, 160, 47));
+        agregarP.setText("AGREGAR PRODUCTO");
+        agregarP.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                agregarPActionPerformed(evt);
+            }
+        });
+
+        eliminarP.setText("ELIMINAR PRODUCTOS");
+        eliminarP.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                eliminarPActionPerformed(evt);
+            }
+        });
+
+        mostrarP.setBackground(new java.awt.Color(192, 157, 33));
+        mostrarP.setText("MOSTRAR PRODUCTOS");
+        mostrarP.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                mostrarPActionPerformed(evt);
+            }
+        });
+
+        modificarP.setText("MODIFICAR PRODUCTOS");
+        modificarP.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                modificarPActionPerformed(evt);
+            }
+        });
+
+        javax.swing.GroupLayout jPanel5Layout = new javax.swing.GroupLayout(jPanel5);
+        jPanel5.setLayout(jPanel5Layout);
+        jPanel5Layout.setHorizontalGroup(
+            jPanel5Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(jPanel5Layout.createSequentialGroup()
+                .addComponent(agregarP, javax.swing.GroupLayout.PREFERRED_SIZE, 180, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addComponent(mostrarP, javax.swing.GroupLayout.PREFERRED_SIZE, 202, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addComponent(eliminarP, javax.swing.GroupLayout.PREFERRED_SIZE, 188, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addComponent(modificarP, javax.swing.GroupLayout.DEFAULT_SIZE, 714, Short.MAX_VALUE)
+                .addContainerGap())
+        );
+        jPanel5Layout.setVerticalGroup(
+            jPanel5Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addComponent(mostrarP, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+            .addComponent(eliminarP, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+            .addGroup(jPanel5Layout.createSequentialGroup()
+                .addComponent(agregarP, javax.swing.GroupLayout.PREFERRED_SIZE, 78, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(0, 0, Short.MAX_VALUE))
+            .addComponent(modificarP, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+        );
 
         PanelAgregar.setBackground(new java.awt.Color(255, 153, 0));
         PanelAgregar.setPreferredSize(new java.awt.Dimension(850, 970));
@@ -209,7 +266,7 @@ public class PagPrincipal extends javax.swing.JFrame {
                 .addGroup(PanelAgregarLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(limpiarBotones)
                     .addComponent(agregarProducto))
-                .addContainerGap(630, Short.MAX_VALUE))
+                .addContainerGap(642, Short.MAX_VALUE))
         );
 
         jTabbedPane1.addTab("tab1", PanelAgregar);
@@ -262,7 +319,7 @@ public class PagPrincipal extends javax.swing.JFrame {
                         .addComponent(jButton2)
                         .addGap(576, 576, 576)
                         .addComponent(jButton1)))
-                .addGap(0, 580, Short.MAX_VALUE))
+                .addGap(0, 226, Short.MAX_VALUE))
         );
         PanelMostrarLayout.setVerticalGroup(
             PanelMostrarLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -355,63 +412,6 @@ public class PagPrincipal extends javax.swing.JFrame {
 
         jTabbedPane1.addTab("tab4", PanelModificar);
 
-        jPanel5.setBackground(new java.awt.Color(0, 0, 153));
-        jPanel5.setPreferredSize(new java.awt.Dimension(850, 75));
-
-        agregarP.setBackground(new java.awt.Color(218, 160, 47));
-        agregarP.setText("AGREGAR PRODUCTO");
-        agregarP.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                agregarPActionPerformed(evt);
-            }
-        });
-
-        eliminarP.setText("ELIMINAR PRODUCTOS");
-        eliminarP.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                eliminarPActionPerformed(evt);
-            }
-        });
-
-        mostrarP.setBackground(new java.awt.Color(192, 157, 33));
-        mostrarP.setText("MOSTRAR PRODUCTOS");
-        mostrarP.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                mostrarPActionPerformed(evt);
-            }
-        });
-
-        modificarP.setText("MODIFICAR PRODUCTOS");
-        modificarP.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                modificarPActionPerformed(evt);
-            }
-        });
-
-        javax.swing.GroupLayout jPanel5Layout = new javax.swing.GroupLayout(jPanel5);
-        jPanel5.setLayout(jPanel5Layout);
-        jPanel5Layout.setHorizontalGroup(
-            jPanel5Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(jPanel5Layout.createSequentialGroup()
-                .addComponent(agregarP, javax.swing.GroupLayout.PREFERRED_SIZE, 180, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addComponent(mostrarP, javax.swing.GroupLayout.PREFERRED_SIZE, 202, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addComponent(eliminarP, javax.swing.GroupLayout.PREFERRED_SIZE, 188, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addComponent(modificarP, javax.swing.GroupLayout.DEFAULT_SIZE, 714, Short.MAX_VALUE)
-                .addContainerGap())
-        );
-        jPanel5Layout.setVerticalGroup(
-            jPanel5Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addComponent(mostrarP, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-            .addComponent(eliminarP, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-            .addGroup(jPanel5Layout.createSequentialGroup()
-                .addComponent(agregarP, javax.swing.GroupLayout.PREFERRED_SIZE, 78, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(0, 0, Short.MAX_VALUE))
-            .addComponent(modificarP, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-        );
-
         javax.swing.GroupLayout jPanel4Layout = new javax.swing.GroupLayout(jPanel4);
         jPanel4.setLayout(jPanel4Layout);
         jPanel4Layout.setHorizontalGroup(
@@ -421,7 +421,7 @@ public class PagPrincipal extends javax.swing.JFrame {
                 .addContainerGap())
             .addGroup(jPanel4Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                 .addGroup(jPanel4Layout.createSequentialGroup()
-                    .addComponent(jTabbedPane1, javax.swing.GroupLayout.DEFAULT_SIZE, 834, Short.MAX_VALUE)
+                    .addComponent(jTabbedPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 834, Short.MAX_VALUE)
                     .addContainerGap()))
         );
         jPanel4Layout.setVerticalGroup(
