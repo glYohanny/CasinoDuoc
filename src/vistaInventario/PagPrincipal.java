@@ -10,6 +10,7 @@ import controladorInventario.MostrarProducto;
 import javax.swing.JTable;
 import javax.swing.table.DefaultTableModel;
 import modeloInventario.Bebidas;
+import modeloInventario.Comida;
 import modeloInventario.Inventario;
 import modeloInventario.Producto;
 
@@ -52,7 +53,6 @@ public class PagPrincipal extends javax.swing.JFrame {
         jLabel5 = new javax.swing.JLabel();
         jLabel6 = new javax.swing.JLabel();
         nombreProducto = new javax.swing.JTextField();
-        categoriaProducto = new javax.swing.JTextField();
         precioProducto = new javax.swing.JTextField();
         cantidadProducto = new javax.swing.JTextField();
         imagenProducto = new javax.swing.JTextField();
@@ -163,12 +163,6 @@ public class PagPrincipal extends javax.swing.JFrame {
             }
         });
 
-        categoriaProducto.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                categoriaProductoActionPerformed(evt);
-            }
-        });
-
         precioProducto.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 precioProductoActionPerformed(evt);
@@ -201,7 +195,7 @@ public class PagPrincipal extends javax.swing.JFrame {
             }
         });
 
-        categoriaBox.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "B", "C", " " }));
+        categoriaBox.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Bebida", "Comida" }));
         categoriaBox.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 categoriaBoxActionPerformed(evt);
@@ -220,8 +214,6 @@ public class PagPrincipal extends javax.swing.JFrame {
                             .addGroup(PanelAgregarLayout.createSequentialGroup()
                                 .addComponent(jLabel2)
                                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                                .addComponent(categoriaProducto, javax.swing.GroupLayout.PREFERRED_SIZE, 149, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                .addGap(78, 78, 78)
                                 .addComponent(categoriaBox, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
                             .addGroup(PanelAgregarLayout.createSequentialGroup()
                                 .addGroup(PanelAgregarLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -242,7 +234,7 @@ public class PagPrincipal extends javax.swing.JFrame {
                                     .addComponent(nombreProducto)
                                     .addComponent(precioProducto, javax.swing.GroupLayout.DEFAULT_SIZE, 149, Short.MAX_VALUE)
                                     .addComponent(imagenProducto))))
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 462, Short.MAX_VALUE)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 614, Short.MAX_VALUE)
                         .addComponent(agregado, javax.swing.GroupLayout.PREFERRED_SIZE, 202, javax.swing.GroupLayout.PREFERRED_SIZE))
                     .addGroup(PanelAgregarLayout.createSequentialGroup()
                         .addGap(96, 96, 96)
@@ -259,7 +251,6 @@ public class PagPrincipal extends javax.swing.JFrame {
                     .addGroup(PanelAgregarLayout.createSequentialGroup()
                         .addGroup(PanelAgregarLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                             .addComponent(jLabel2)
-                            .addComponent(categoriaProducto, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                             .addComponent(categoriaBox, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                         .addGroup(PanelAgregarLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
@@ -488,10 +479,6 @@ public class PagPrincipal extends javax.swing.JFrame {
         // TODO add your handling code here:
     }//GEN-LAST:event_nombreProductoActionPerformed
 
-    private void categoriaProductoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_categoriaProductoActionPerformed
-        // TODO add your handling code here:
-    }//GEN-LAST:event_categoriaProductoActionPerformed
-
     private void precioProductoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_precioProductoActionPerformed
         // TODO add your handling code here:
     }//GEN-LAST:event_precioProductoActionPerformed
@@ -505,13 +492,17 @@ public class PagPrincipal extends javax.swing.JFrame {
     }//GEN-LAST:event_imagenProductoActionPerformed
 
     private void agregarProductoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_agregarProductoActionPerformed
+        Producto nProductoC = new Comida();
         Producto nProductoB = new Bebidas();
-        String categoria = categoriaProducto.getText().toUpperCase();
+        String categoria = categoriaBox.getSelectedItem().toString();
         String nombre = nombreProducto.getText().toUpperCase();
         int precio = Integer.parseInt(precioProducto.getText());
         int cantidad = Integer.parseInt(cantidadProducto.getText());
-
-        nProductoB.NuevoProducto(nombre, precio, cantidad);
+        if (categoria.equals("Bebida")) {
+            nProductoB.NuevoProducto(nombre, precio, cantidad);
+        } else if (categoria.equals("Comida")) {
+            nProductoC.NuevoProducto(nombre, precio, cantidad);
+        }
 
         if (!categoria.equals("") && !nombre.equals("") && !precioProducto.getText().equals("") && !cantidadProducto.getText().equals("")) {
 
@@ -536,7 +527,6 @@ public class PagPrincipal extends javax.swing.JFrame {
 
     private void limpiarBotonesActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_limpiarBotonesActionPerformed
         Conexion conexi = new Conexion();
-        categoriaProducto.setText("");
         nombreProducto.setText("");
         precioProducto.setText("");
         cantidadProducto.setText("");
@@ -545,7 +535,7 @@ public class PagPrincipal extends javax.swing.JFrame {
     }//GEN-LAST:event_limpiarBotonesActionPerformed
 
     private void categoriaBoxActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_categoriaBoxActionPerformed
-        // TODO add your handling code here:
+        String categoria = categoriaBox.getSelectedItem().toString();
     }//GEN-LAST:event_categoriaBoxActionPerformed
 
     /**
@@ -593,7 +583,6 @@ public class PagPrincipal extends javax.swing.JFrame {
     private javax.swing.JButton agregarProducto;
     private javax.swing.JTextField cantidadProducto;
     private javax.swing.JComboBox<String> categoriaBox;
-    private javax.swing.JTextField categoriaProducto;
     private javax.swing.JLabel confirmacionEl;
     private javax.swing.JButton eliminarP;
     private javax.swing.JTextField eliminarProducto;

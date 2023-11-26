@@ -215,8 +215,6 @@
                                       <Group type="102" alignment="0" attributes="0">
                                           <Component id="jLabel2" min="-2" max="-2" attributes="0"/>
                                           <EmptySpace type="unrelated" max="-2" attributes="0"/>
-                                          <Component id="categoriaProducto" min="-2" pref="149" max="-2" attributes="0"/>
-                                          <EmptySpace min="-2" pref="78" max="-2" attributes="0"/>
                                           <Component id="categoriaBox" min="-2" max="-2" attributes="0"/>
                                       </Group>
                                       <Group type="102" alignment="0" attributes="0">
@@ -247,7 +245,7 @@
                                           </Group>
                                       </Group>
                                   </Group>
-                                  <EmptySpace pref="462" max="32767" attributes="0"/>
+                                  <EmptySpace pref="614" max="32767" attributes="0"/>
                                   <Component id="agregado" min="-2" pref="202" max="-2" attributes="0"/>
                               </Group>
                               <Group type="102" alignment="0" attributes="0">
@@ -269,7 +267,6 @@
                               <Group type="102" attributes="0">
                                   <Group type="103" groupAlignment="3" attributes="0">
                                       <Component id="jLabel2" alignment="3" min="-2" max="-2" attributes="0"/>
-                                      <Component id="categoriaProducto" alignment="3" min="-2" max="-2" attributes="0"/>
                                       <Component id="categoriaBox" alignment="3" min="-2" max="-2" attributes="0"/>
                                   </Group>
                                   <EmptySpace max="-2" attributes="0"/>
@@ -336,11 +333,6 @@
                     <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="nombreProductoActionPerformed"/>
                   </Events>
                 </Component>
-                <Component class="javax.swing.JTextField" name="categoriaProducto">
-                  <Events>
-                    <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="categoriaProductoActionPerformed"/>
-                  </Events>
-                </Component>
                 <Component class="javax.swing.JTextField" name="precioProducto">
                   <Events>
                     <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="precioProductoActionPerformed"/>
@@ -377,10 +369,9 @@
                 <Component class="javax.swing.JComboBox" name="categoriaBox">
                   <Properties>
                     <Property name="model" type="javax.swing.ComboBoxModel" editor="org.netbeans.modules.form.editors2.ComboBoxModelEditor">
-                      <StringArray count="3">
-                        <StringItem index="0" value="B"/>
-                        <StringItem index="1" value="C"/>
-                        <StringItem index="2" value=" "/>
+                      <StringArray count="2">
+                        <StringItem index="0" value="Bebida"/>
+                        <StringItem index="1" value="Comida"/>
                       </StringArray>
                     </Property>
                   </Properties>
