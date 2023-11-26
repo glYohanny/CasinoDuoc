@@ -9,7 +9,7 @@ package modeloInventario;
  * @author pedro
  */
 public class Comida extends Producto{
-
+    Inventario lista=new Inventario();
     public Comida() {
     }
 
@@ -21,6 +21,7 @@ public class Comida extends Producto{
     @Override
     public Producto NuevoProducto(String nom,int pre,int cant) {
        Comida nComida =new Comida(nom,pre,cant,"C");
+       lista.AgregarSQL(nComida);
        return nComida;
     }
     
