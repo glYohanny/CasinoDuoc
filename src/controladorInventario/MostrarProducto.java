@@ -4,6 +4,7 @@
  */
 package controladorInventario;
 
+import com.mysql.cj.jdbc.result.ResultSetMetaData;
 import conexionBaseDeDatos.Conexion;
 import java.sql.Connection;
 import java.sql.PreparedStatement;
@@ -17,35 +18,41 @@ import javax.swing.table.DefaultTableModel;
  * @author pedro
  */
 public class MostrarProducto extends Registro {
+
     Conexion conex = new Conexion();
     Connection con = conex.conexionBD();
-    String listaSql = "select*from producto.producto";
+    String listaSql = "select * from producto.producto";
+    String filtroSql = "SELECT * FROM producto.producto where clase='?'";
     PreparedStatement preparar = null;
+    ResultSet set = null;
 
     public MostrarProducto() {
     }
 
-    public void mostrar(DefaultTableModel model,JTable tabla) {
-        try {
-            preparar = con.prepareStatement(listaSql);
-            ResultSet set = preparar.executeQuery();
-            Object [] producto=new Object[5];
+    public void mostrar(DefaultTableModel model, JTable tabla) {
             
+    }
+    
+
+    public void FiltroProducto(String cat, DefaultTableModel model, JTable tabla) throws SQLException {
+        try {
+            preparar = con.prepareStatement(filtroSql);
+            set = preparar.executeQuery();
+            Object[] producto = new Object[5];
+
             while (set.next()) {
-                producto[0]=set.getInt(1);
-                producto[1]=set.getString(2);
-                producto[2]=set.getInt(3);
-                producto[3]=set.getInt(4);
-                producto[4]=set.getString(5);
+                producto[0] = set.getInt(1);
+                producto[1] = set.getString(2);
+                producto[2] = set.getInt(3);
+                producto[3] = set.getInt(4);
+                producto[4] = set.getString(5);
                 model.addRow(producto);
             }
             tabla.setModel(model);
             preparar.close();
             con.close();
-
-        } catch (SQLException ex) {
-            System.out.println("error: " + ex.getMessage());
+        } catch (SQLException sx) {
+            System.out.println("error: " + sx.getMessage());
         }
     }
-
 }
