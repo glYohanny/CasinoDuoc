@@ -8,7 +8,7 @@ package modeloInventario;
  *
  * @author pedro
  */
-public class Producto {
+public abstract class Producto {
 
     protected String nombreProducto;
     protected int precioProducto;
@@ -24,6 +24,7 @@ public class Producto {
         this.cantidaProducto = cantidaProducto;
         this.tipoProducto = tipoProducto;
     }
+    
 
     public String getNombreProducto() {
         return nombreProducto;
@@ -57,9 +58,12 @@ public class Producto {
         this.tipoProducto = tipoProducto;
     }
 
+    public abstract Producto NuevoProducto(String nom,int pre,int cant);
+    
+    
     @Override
     public String toString() {
         return "Producto{" + "nombreProducto=" + nombreProducto + ", precioProducto=" + precioProducto + ", cantidaProducto=" + cantidaProducto + ", tipoProducto=" + tipoProducto + '}';
     }
-
+ 
 }

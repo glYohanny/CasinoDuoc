@@ -4,10 +4,12 @@
  */
 package vistaInventario;
 
+import conexionBaseDeDatos.Conexion;
 import controladorInventario.InsertarProducto;
 import controladorInventario.MostrarProducto;
 import javax.swing.JTable;
 import javax.swing.table.DefaultTableModel;
+import modeloInventario.Bebidas;
 import modeloInventario.Inventario;
 import modeloInventario.Producto;
 
@@ -57,6 +59,7 @@ public class PagPrincipal extends javax.swing.JFrame {
         agregarProducto = new javax.swing.JButton();
         limpiarBotones = new javax.swing.JButton();
         agregado = new javax.swing.JLabel();
+        categoriaBox = new javax.swing.JComboBox<>();
         PanelMostrar = new javax.swing.JPanel();
         jLabel1 = new javax.swing.JLabel();
         idtxt = new javax.swing.JTextField();
@@ -198,7 +201,12 @@ public class PagPrincipal extends javax.swing.JFrame {
             }
         });
 
-        agregado.setText("jLabel1");
+        categoriaBox.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "B", "C", " " }));
+        categoriaBox.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                categoriaBoxActionPerformed(evt);
+            }
+        });
 
         javax.swing.GroupLayout PanelAgregarLayout = new javax.swing.GroupLayout(PanelAgregar);
         PanelAgregar.setLayout(PanelAgregarLayout);
@@ -212,7 +220,9 @@ public class PagPrincipal extends javax.swing.JFrame {
                             .addGroup(PanelAgregarLayout.createSequentialGroup()
                                 .addComponent(jLabel2)
                                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                                .addComponent(categoriaProducto, javax.swing.GroupLayout.PREFERRED_SIZE, 149, javax.swing.GroupLayout.PREFERRED_SIZE))
+                                .addComponent(categoriaProducto, javax.swing.GroupLayout.PREFERRED_SIZE, 149, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                .addGap(78, 78, 78)
+                                .addComponent(categoriaBox, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
                             .addGroup(PanelAgregarLayout.createSequentialGroup()
                                 .addGroup(PanelAgregarLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                                     .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, PanelAgregarLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -232,7 +242,7 @@ public class PagPrincipal extends javax.swing.JFrame {
                                     .addComponent(nombreProducto)
                                     .addComponent(precioProducto, javax.swing.GroupLayout.DEFAULT_SIZE, 149, Short.MAX_VALUE)
                                     .addComponent(imagenProducto))))
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 612, Short.MAX_VALUE)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 462, Short.MAX_VALUE)
                         .addComponent(agregado, javax.swing.GroupLayout.PREFERRED_SIZE, 202, javax.swing.GroupLayout.PREFERRED_SIZE))
                     .addGroup(PanelAgregarLayout.createSequentialGroup()
                         .addGap(96, 96, 96)
@@ -249,7 +259,8 @@ public class PagPrincipal extends javax.swing.JFrame {
                     .addGroup(PanelAgregarLayout.createSequentialGroup()
                         .addGroup(PanelAgregarLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                             .addComponent(jLabel2)
-                            .addComponent(categoriaProducto, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                            .addComponent(categoriaProducto, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addComponent(categoriaBox, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                         .addGroup(PanelAgregarLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                             .addComponent(jLabel3)
@@ -494,26 +505,25 @@ public class PagPrincipal extends javax.swing.JFrame {
     }//GEN-LAST:event_imagenProductoActionPerformed
 
     private void agregarProductoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_agregarProductoActionPerformed
-
+        Producto nProductoB = new Bebidas();
         String categoria = categoriaProducto.getText().toUpperCase();
         String nombre = nombreProducto.getText().toUpperCase();
         int precio = Integer.parseInt(precioProducto.getText());
         int cantidad = Integer.parseInt(cantidadProducto.getText());
-        Inventario list = new Inventario();
 
-        Producto nProducto = new Producto(nombre, precio, cantidad, categoria);
-        
-        list.agregarLista(nProducto);
-        insert.InsertarProducto(nombre, precio, cantidad, categoria);
+        nProductoB.NuevoProducto(nombre, precio, cantidad);
+
         if (!categoria.equals("") && !nombre.equals("") && !precioProducto.getText().equals("") && !cantidadProducto.getText().equals("")) {
+
             agregado.setText("Producto agregado correctamente");
+
         } else {
             agregado.setText("Producto no agregado");
         }
     }//GEN-LAST:event_agregarProductoActionPerformed
 
     private void idtxtActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_idtxtActionPerformed
-        // TODO add your handling code here:
+
     }//GEN-LAST:event_idtxtActionPerformed
 
     private void jButton1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton1ActionPerformed
@@ -521,16 +531,22 @@ public class PagPrincipal extends javax.swing.JFrame {
     }//GEN-LAST:event_jButton1ActionPerformed
 
     private void eliminarProductoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_eliminarProductoActionPerformed
-        jTabbedPane1.setSelectedIndex(2);        
+        jTabbedPane1.setSelectedIndex(2);
     }//GEN-LAST:event_eliminarProductoActionPerformed
 
     private void limpiarBotonesActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_limpiarBotonesActionPerformed
+        Conexion conexi = new Conexion();
         categoriaProducto.setText("");
         nombreProducto.setText("");
         precioProducto.setText("");
         cantidadProducto.setText("");
-    
+
+
     }//GEN-LAST:event_limpiarBotonesActionPerformed
+
+    private void categoriaBoxActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_categoriaBoxActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_categoriaBoxActionPerformed
 
     /**
      * @param args the command line arguments
@@ -576,6 +592,7 @@ public class PagPrincipal extends javax.swing.JFrame {
     private javax.swing.JButton agregarP;
     private javax.swing.JButton agregarProducto;
     private javax.swing.JTextField cantidadProducto;
+    private javax.swing.JComboBox<String> categoriaBox;
     private javax.swing.JTextField categoriaProducto;
     private javax.swing.JLabel confirmacionEl;
     private javax.swing.JButton eliminarP;

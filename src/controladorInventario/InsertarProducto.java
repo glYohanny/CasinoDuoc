@@ -14,31 +14,34 @@ import java.sql.SQLException;
  * @author pedro
  */
 public class InsertarProducto extends Registro {
-    
 
     Conexion conex = new Conexion();
     Connection con = conex.conexionBD();
     String insertSql = "insert into producto.producto(nombre,precio,cantidad,clase)values(?,?,?,?)";
     PreparedStatement preparar = null;
-    
+    boolean jjj = true;
+
     public InsertarProducto() {
     }
 
-    
-    public void InsertarProducto(String nomProc,int preProc,int canProc,String clasProc) {
+    public void InsertarProducto(String nomProc, int preProc, int canProc, String clasProc) {
+
         try {
+
             preparar = con.prepareStatement(insertSql);
-            preparar.setString(1, nomProc);          
+            preparar.setString(1, nomProc);
             preparar.setInt(2, preProc);
-             preparar.setInt(3, canProc);
-             preparar.setString(4, clasProc);
-             
+            preparar.setInt(3, canProc);
+            preparar.setString(4, clasProc);
             preparar.executeUpdate();
             preparar.close();
             con.close();
             System.out.println("nice");
+
         } catch (SQLException ex) {
             System.out.println("error: " + ex.getMessage());
         }
+
     }
+
 }
