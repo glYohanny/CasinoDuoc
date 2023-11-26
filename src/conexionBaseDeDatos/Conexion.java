@@ -21,6 +21,7 @@ public class Conexion {
         String url = "jdbc:mysql://localhost:3306/libreria";
         String usuario = "root";
         String contraseña = "06Villegas#ñTorres2004";
+        //String contraseña = "";
         Connection conexion = null;
         try {
 

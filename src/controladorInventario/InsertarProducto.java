@@ -20,7 +20,7 @@ public class InsertarProducto extends Registro {
     Connection con = conex.conexionBD();
     String insertSql = "insert into producto.producto(nombre,precio,cantidad,clase)values(?,?,?,?)";
     PreparedStatement preparar = null;
-
+    
     public InsertarProducto() {
     }
 

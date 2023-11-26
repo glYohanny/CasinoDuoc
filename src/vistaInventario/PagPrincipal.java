@@ -192,6 +192,11 @@ public class PagPrincipal extends javax.swing.JFrame {
         });
 
         limpiarBotones.setText("Limpiar");
+        limpiarBotones.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                limpiarBotonesActionPerformed(evt);
+            }
+        });
 
         agregado.setText("jLabel1");
 
@@ -497,6 +502,7 @@ public class PagPrincipal extends javax.swing.JFrame {
         Inventario list = new Inventario();
 
         Producto nProducto = new Producto(nombre, precio, cantidad, categoria);
+        
         list.agregarLista(nProducto);
         insert.InsertarProducto(nombre, precio, cantidad, categoria);
         if (!categoria.equals("") && !nombre.equals("") && !precioProducto.getText().equals("") && !cantidadProducto.getText().equals("")) {
@@ -517,6 +523,14 @@ public class PagPrincipal extends javax.swing.JFrame {
     private void eliminarProductoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_eliminarProductoActionPerformed
         jTabbedPane1.setSelectedIndex(2);        
     }//GEN-LAST:event_eliminarProductoActionPerformed
+
+    private void limpiarBotonesActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_limpiarBotonesActionPerformed
+        categoriaProducto.setText("");
+        nombreProducto.setText("");
+        precioProducto.setText("");
+        cantidadProducto.setText("");
+    
+    }//GEN-LAST:event_limpiarBotonesActionPerformed
 
     /**
      * @param args the command line arguments
