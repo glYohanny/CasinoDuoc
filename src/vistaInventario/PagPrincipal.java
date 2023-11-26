@@ -29,12 +29,14 @@ public class PagPrincipal extends javax.swing.JFrame {
     InsertarProducto insert = new InsertarProducto();
     MostrarProducto wach = new MostrarProducto();
     DefaultTableModel modelo=new DefaultTableModel();
-
+    Object[] producto = new Object[5];
     public PagPrincipal() {
         initComponents();
         setLocationRelativeTo(null);
+       
+        modelo = (DefaultTableModel) tablaProducto.getModel();
 
-
+        wach.mostrar(modelo, tablaProducto,producto);
 
     }
 
@@ -558,6 +560,7 @@ public class PagPrincipal extends javax.swing.JFrame {
             }
         }
 */
+    wach.reset(producto, modelo);
     }//GEN-LAST:event_mostrarBotomActionPerformed
 
     private void eliminarProductoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_eliminarProductoActionPerformed
@@ -577,37 +580,7 @@ public class PagPrincipal extends javax.swing.JFrame {
     }//GEN-LAST:event_categoriaBoxActionPerformed
 
     private void recargarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_recargarActionPerformed
-try {
-            jTable1.setModel(modelo);
-            PreparedStatement ps = null;
-            ResultSet rs=null;
-            Conexion conn=new Conexion();
-            Connection con= conn.conexionBD();
-            String sql="SELECT idproducto,nombre,precio,cantidad,clase FROM producto.producto";
-            ps= con.prepareStatement(sql);
-            rs= ps.executeQuery();
-            java.sql.ResultSetMetaData rsMd= rs.getMetaData();
-            int cantidadColumnas=rsMd.getColumnCount();
 
-            modelo.addColumn("idProducto");
-            modelo.addColumn("nombre");
-            modelo.addColumn("precio");
-            modelo.addColumn("cantidad");
-            modelo.addColumn("clase");
-
-            while(rs.next()){
-                Object[] filas = new Object[cantidadColumnas];
-                for (int i=0;  i< cantidadColumnas;i++){
-                    filas[i]=rs.getObject(i+1);
-
-                }
-                modelo.addRow(filas);
-            }
-
-        } catch (SQLException ex) {
-            System.out.println("Error al conectar a la base de datos: " + ex.getMessage());
-
-        }
     }//GEN-LAST:event_recargarActionPerformed
 
     public static void main(String args[]) {
