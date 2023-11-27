@@ -20,7 +20,7 @@ public class Registro {
       MostrarProducto show=new MostrarProducto();
       
       
-        
+        delet.EliminarProducto(14);
     }
     
 }

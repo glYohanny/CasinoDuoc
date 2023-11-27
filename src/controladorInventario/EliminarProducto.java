@@ -14,18 +14,16 @@ import java.sql.SQLException;
  * @author pedro
  */
 public class EliminarProducto extends Registro {
-    
 
-    Conexion conex = new Conexion();
-    Connection con = conex.conexionBD();
-    String deletSql = "DELETE FROM producto where idproducto=?";
-    PreparedStatement preparar = null;
+    public void EliminarProducto(int id) {
+        Conexion conex = new Conexion();
+        Connection con = conex.conexionBD();
+        String deletSql = "DELETE FROM producto.producto where idproducto=?";
+        PreparedStatement preparar = null;
 
-    public void EliminarProducto(){
         try {
             preparar = con.prepareStatement(deletSql);
-            preparar.setInt(1, 1);
-
+            preparar.setInt(1,id);
             preparar.executeUpdate();
             preparar.close();
             con.close();

@@ -13,9 +13,11 @@ import java.sql.SQLException;
 import javax.swing.JTable;
 import javax.swing.table.DefaultTableModel;
 import conexionBaseDeDatos.Conexion;
+import controladorInventario.EliminarProducto;
 import controladorInventario.InsertarProducto;
 import controladorInventario.MostrarProducto;
 import java.sql.SQLException;
+import javax.swing.JOptionPane;
 import javax.swing.table.DefaultTableModel;
 import modeloInventario.Bebidas;
 import modeloInventario.Comida;
@@ -26,16 +28,17 @@ import modeloInventario.Producto;
  * @author pedro
  */
 public class PagPrincipal extends javax.swing.JFrame {
-    
+
     InsertarProducto insert = new InsertarProducto();
     MostrarProducto wach = new MostrarProducto();
     DefaultTableModel modelo = new DefaultTableModel();
     Object[] producto = new Object[5];
+    EliminarProducto delet = new EliminarProducto();
 
     public PagPrincipal() {
         initComponents();
     }
-    
+
     @SuppressWarnings("unchecked")
     // <editor-fold defaultstate="collapsed" desc="Generated Code">//GEN-BEGIN:initComponents
     private void initComponents() {
@@ -72,6 +75,7 @@ public class PagPrincipal extends javax.swing.JFrame {
         recargar = new javax.swing.JButton();
         jScrollPane4 = new javax.swing.JScrollPane();
         jTable2 = new javax.swing.JTable();
+        eliminar = new javax.swing.JButton();
         PanelEliminar = new javax.swing.JPanel();
         jLabel7 = new javax.swing.JLabel();
         eliminarProducto = new javax.swing.JTextField();
@@ -322,6 +326,13 @@ public class PagPrincipal extends javax.swing.JFrame {
         ));
         jScrollPane4.setViewportView(jTable2);
 
+        eliminar.setText("Eliminar");
+        eliminar.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                eliminarActionPerformed(evt);
+            }
+        });
+
         javax.swing.GroupLayout PanelMostrarLayout = new javax.swing.GroupLayout(PanelMostrar);
         PanelMostrar.setLayout(PanelMostrarLayout);
         PanelMostrarLayout.setHorizontalGroup(
@@ -335,7 +346,9 @@ public class PagPrincipal extends javax.swing.JFrame {
                         .addComponent(idtxt, javax.swing.GroupLayout.PREFERRED_SIZE, 160, javax.swing.GroupLayout.PREFERRED_SIZE))
                     .addGroup(PanelMostrarLayout.createSequentialGroup()
                         .addGap(58, 58, 58)
-                        .addComponent(jButton2)))
+                        .addComponent(jButton2)
+                        .addGap(18, 18, 18)
+                        .addComponent(eliminar)))
                 .addGap(769, 769, 769)
                 .addComponent(recargar)
                 .addGap(39, 39, 39)
@@ -359,7 +372,8 @@ public class PagPrincipal extends javax.swing.JFrame {
                 .addGroup(PanelMostrarLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(jButton2)
                     .addComponent(recargar)
-                    .addComponent(mostrarBotom))
+                    .addComponent(mostrarBotom)
+                    .addComponent(eliminar))
                 .addGap(120, 120, 120))
         );
 
@@ -447,7 +461,7 @@ public class PagPrincipal extends javax.swing.JFrame {
                 .addContainerGap())
             .addGroup(jPanel4Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                 .addGroup(jPanel4Layout.createSequentialGroup()
-                    .addComponent(jTabbedPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 834, Short.MAX_VALUE)
+                    .addComponent(jTabbedPane1, javax.swing.GroupLayout.DEFAULT_SIZE, 834, Short.MAX_VALUE)
                     .addContainerGap()))
         );
         jPanel4Layout.setVerticalGroup(
@@ -522,14 +536,15 @@ public class PagPrincipal extends javax.swing.JFrame {
         } else if (categoria.equals("Comida")) {
             nProductoC.NuevoProducto(nombre, precio, cantidad);
         }
-        
+
         if (!categoria.equals("") && !nombre.equals("") && !precioProducto.getText().equals("") && !cantidadProducto.getText().equals("")) {
-            
+
             agregado.setText("Producto agregado correctamente");
-            
+
         } else {
             agregado.setText("Producto no agregado");
         }
+        JOptionPane.showMessageDialog(null, "El elemento a sido agregado exitosamente");
     }//GEN-LAST:event_agregarProductoActionPerformed
 
     private void idtxtActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_idtxtActionPerformed
@@ -548,7 +563,7 @@ public class PagPrincipal extends javax.swing.JFrame {
         nombreProducto.setText("");
         precioProducto.setText("");
         cantidadProducto.setText("");
-        
+
 
     }//GEN-LAST:event_limpiarBotonesActionPerformed
 
@@ -559,7 +574,13 @@ public class PagPrincipal extends javax.swing.JFrame {
     private void recargarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_recargarActionPerformed
 
     }//GEN-LAST:event_recargarActionPerformed
-    
+
+    private void eliminarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_eliminarActionPerformed
+        int idInt = Integer.parseInt(idtxt.getText());
+        delet.EliminarProducto(idInt);
+        JOptionPane.showMessageDialog(null, "EL elemento a sido eliminado correctamente");
+    }//GEN-LAST:event_eliminarActionPerformed
+
     public static void main(String args[]) {
 
         //<editor-fold defaultstate="collapsed" desc=" Look and feel setting code (optional) ">
@@ -602,6 +623,7 @@ public class PagPrincipal extends javax.swing.JFrame {
     private javax.swing.JTextField cantidadProducto;
     private javax.swing.JComboBox<String> categoriaBox;
     private javax.swing.JLabel confirmacionEl;
+    private javax.swing.JButton eliminar;
     private javax.swing.JButton eliminarP;
     private javax.swing.JTextField eliminarProducto;
     private javax.swing.JTextField idtxt;
