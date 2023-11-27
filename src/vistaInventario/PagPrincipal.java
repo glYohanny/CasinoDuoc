@@ -3,6 +3,7 @@
  * Click nbfs://nbhost/SystemFileSystem/Templates/GUIForms/JFrame.java to edit this template
  */
 package vistaInventario;
+
 import com.mysql.cj.jdbc.result.ResultSetMetaData;
 import conexionBaseDeDatos.Conexion;
 import java.sql.Connection;
@@ -25,15 +26,16 @@ import modeloInventario.Producto;
  * @author pedro
  */
 public class PagPrincipal extends javax.swing.JFrame {
-
+    
     InsertarProducto insert = new InsertarProducto();
     MostrarProducto wach = new MostrarProducto();
-    DefaultTableModel modelo=new DefaultTableModel();
+    DefaultTableModel modelo = new DefaultTableModel();
     Object[] producto = new Object[5];
+
     public PagPrincipal() {
         initComponents();
     }
-
+    
     @SuppressWarnings("unchecked")
     // <editor-fold defaultstate="collapsed" desc="Generated Code">//GEN-BEGIN:initComponents
     private void initComponents() {
@@ -172,7 +174,6 @@ public class PagPrincipal extends javax.swing.JFrame {
             }
         });
 
-        cantidadProducto.setText("a");
         cantidadProducto.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 cantidadProductoActionPerformed(evt);
@@ -521,11 +522,11 @@ public class PagPrincipal extends javax.swing.JFrame {
         } else if (categoria.equals("Comida")) {
             nProductoC.NuevoProducto(nombre, precio, cantidad);
         }
-
+        
         if (!categoria.equals("") && !nombre.equals("") && !precioProducto.getText().equals("") && !cantidadProducto.getText().equals("")) {
-
+            
             agregado.setText("Producto agregado correctamente");
-
+            
         } else {
             agregado.setText("Producto no agregado");
         }
@@ -536,38 +537,7 @@ public class PagPrincipal extends javax.swing.JFrame {
     }//GEN-LAST:event_idtxtActionPerformed
 
     private void mostrarBotomActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_mostrarBotomActionPerformed
-try {
-            DefaultTableModel modelo = new DefaultTableModel();
-            jTable2.setModel(modelo);
-            PreparedStatement ps = null;
-            ResultSet rs=null;
-            Conexion conn=new Conexion();
-            Connection con= conn.conexionBD();
-            String sql="SELECT idproducto,nombre,precio,cantidad,clase FROM producto.producto";
-            ps= con.prepareStatement(sql);
-            rs= ps.executeQuery();
-            java.sql.ResultSetMetaData rsMd= rs.getMetaData();
-            int cantidadColumnas=rsMd.getColumnCount();
-
-            modelo.addColumn("idProducto");
-            modelo.addColumn("nombre");
-            modelo.addColumn("precio");
-            modelo.addColumn("cantidad");
-            modelo.addColumn("clase");
-
-            while(rs.next()){
-                Object[] filas = new Object[cantidadColumnas];
-                for (int i=0;  i< cantidadColumnas;i++){
-                    filas[i]=rs.getObject(i+1);
-
-                }
-                modelo.addRow(filas);
-            }
-
-        } catch (SQLException ex) {
-            System.out.println("Error al conectar a la base de datos: " + ex.getMessage());
-
-        }
+        wach.mostrar(jTable2);
     }//GEN-LAST:event_mostrarBotomActionPerformed
 
     private void eliminarProductoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_eliminarProductoActionPerformed
@@ -578,7 +548,7 @@ try {
         nombreProducto.setText("");
         precioProducto.setText("");
         cantidadProducto.setText("");
-
+        
 
     }//GEN-LAST:event_limpiarBotonesActionPerformed
 
@@ -589,7 +559,7 @@ try {
     private void recargarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_recargarActionPerformed
 
     }//GEN-LAST:event_recargarActionPerformed
-
+    
     public static void main(String args[]) {
 
         //<editor-fold defaultstate="collapsed" desc=" Look and feel setting code (optional) ">
