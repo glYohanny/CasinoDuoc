@@ -529,22 +529,26 @@ public class PagPrincipal extends javax.swing.JFrame {
         Producto nProductoB = new Bebidas();
         String categoria = categoriaBox.getSelectedItem().toString();
         String nombre = nombreProducto.getText().toUpperCase();
+
         int precio = Integer.parseInt(precioProducto.getText());
         int cantidad = Integer.parseInt(cantidadProducto.getText());
+
         if (categoria.equals("Bebida")) {
+
             nProductoB.NuevoProducto(nombre, precio, cantidad);
+
         } else if (categoria.equals("Comida")) {
             nProductoC.NuevoProducto(nombre, precio, cantidad);
         }
 
         if (!categoria.equals("") && !nombre.equals("") && !precioProducto.getText().equals("") && !cantidadProducto.getText().equals("")) {
 
-            agregado.setText("Producto agregado correctamente");
+            JOptionPane.showMessageDialog(null, "El elemento a sido agregado exitosamente");
 
         } else {
-            agregado.setText("Producto no agregado");
+            JOptionPane.showMessageDialog(null, "El elemento a sido agregado exitosamente");
         }
-        JOptionPane.showMessageDialog(null, "El elemento a sido agregado exitosamente");
+
     }//GEN-LAST:event_agregarProductoActionPerformed
 
     private void idtxtActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_idtxtActionPerformed
@@ -552,7 +556,8 @@ public class PagPrincipal extends javax.swing.JFrame {
     }//GEN-LAST:event_idtxtActionPerformed
 
     private void mostrarBotomActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_mostrarBotomActionPerformed
-        wach.mostrar(jTable2);
+        String idt = idtxt.getText();
+        wach.mostrar(jTable2, idt);
     }//GEN-LAST:event_mostrarBotomActionPerformed
 
     private void eliminarProductoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_eliminarProductoActionPerformed
