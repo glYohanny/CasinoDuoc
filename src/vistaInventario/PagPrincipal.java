@@ -74,9 +74,9 @@ public class PagPrincipal extends javax.swing.JFrame {
         mostrarBotom = new javax.swing.JButton();
         jButton2 = new javax.swing.JButton();
         recargar = new javax.swing.JButton();
-        jScrollPane3 = new javax.swing.JScrollPane();
-        tablaProducto = new javax.swing.JTable();
         flitroClaseBox = new javax.swing.JComboBox<>();
+        jScrollPane4 = new javax.swing.JScrollPane();
+        jTable2 = new javax.swing.JTable();
         PanelEliminar = new javax.swing.JPanel();
         jLabel7 = new javax.swing.JLabel();
         eliminarProducto = new javax.swing.JTextField();
@@ -179,6 +179,7 @@ public class PagPrincipal extends javax.swing.JFrame {
             }
         });
 
+        cantidadProducto.setText("a");
         cantidadProducto.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 cantidadProductoActionPerformed(evt);
@@ -314,19 +315,25 @@ public class PagPrincipal extends javax.swing.JFrame {
             }
         });
 
-        tablaProducto.setModel(new javax.swing.table.DefaultTableModel(
-            new Object [][] {
+        flitroClaseBox.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Bebida", "Comida", "" }));
+        flitroClaseBox.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                flitroClaseBoxActionPerformed(evt);
+            }
+        });
 
+        jTable2.setModel(new javax.swing.table.DefaultTableModel(
+            new Object [][] {
+                {null, null, null, null},
+                {null, null, null, null},
+                {null, null, null, null},
+                {null, null, null, null}
             },
             new String [] {
-                "ID", "Producto", "Precio", "cantidad", "Tipo"
+                "idProducto", "nombre", "precio", "Title 4"
             }
         ));
-        tablaProducto.setColumnSelectionAllowed(true);
-        jScrollPane3.setViewportView(tablaProducto);
-        tablaProducto.getColumnModel().getSelectionModel().setSelectionMode(javax.swing.ListSelectionModel.SINGLE_SELECTION);
-
-        flitroClaseBox.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Bebida", "Comida", "" }));
+        jScrollPane4.setViewportView(jTable2);
 
         javax.swing.GroupLayout PanelMostrarLayout = new javax.swing.GroupLayout(PanelMostrar);
         PanelMostrar.setLayout(PanelMostrarLayout);
@@ -335,23 +342,25 @@ public class PagPrincipal extends javax.swing.JFrame {
             .addGroup(PanelMostrarLayout.createSequentialGroup()
                 .addGroup(PanelMostrarLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addGroup(PanelMostrarLayout.createSequentialGroup()
+                        .addGap(41, 41, 41)
+                        .addComponent(jLabel1)
+                        .addGap(33, 33, 33)
+                        .addComponent(idtxt, javax.swing.GroupLayout.PREFERRED_SIZE, 160, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addGroup(PanelMostrarLayout.createSequentialGroup()
                         .addGap(58, 58, 58)
-                        .addComponent(jButton2)
-                        .addGap(261, 261, 261)
+                        .addComponent(jButton2)))
+                .addGap(769, 769, 769)
+                .addGroup(PanelMostrarLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addGroup(PanelMostrarLayout.createSequentialGroup()
                         .addComponent(recargar)
                         .addGap(39, 39, 39)
                         .addComponent(mostrarBotom))
-                    .addGroup(PanelMostrarLayout.createSequentialGroup()
-                        .addGap(41, 41, 41)
-                        .addGroup(PanelMostrarLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                            .addComponent(jScrollPane3, javax.swing.GroupLayout.PREFERRED_SIZE, 663, javax.swing.GroupLayout.PREFERRED_SIZE)
-                            .addGroup(PanelMostrarLayout.createSequentialGroup()
-                                .addComponent(jLabel1)
-                                .addGap(33, 33, 33)
-                                .addComponent(idtxt, javax.swing.GroupLayout.PREFERRED_SIZE, 160, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                .addGap(40, 40, 40)
-                                .addComponent(flitroClaseBox, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)))))
-                .addGap(0, 604, Short.MAX_VALUE))
+                    .addComponent(flitroClaseBox, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addGap(0, 34, Short.MAX_VALUE))
+            .addGroup(PanelMostrarLayout.createSequentialGroup()
+                .addGap(74, 74, 74)
+                .addComponent(jScrollPane4, javax.swing.GroupLayout.PREFERRED_SIZE, 643, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
         );
         PanelMostrarLayout.setVerticalGroup(
             PanelMostrarLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -361,14 +370,14 @@ public class PagPrincipal extends javax.swing.JFrame {
                     .addComponent(idtxt, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addComponent(jLabel1)
                     .addComponent(flitroClaseBox, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addComponent(jScrollPane3, javax.swing.GroupLayout.PREFERRED_SIZE, 185, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(111, 111, 111)
+                .addGap(18, 18, 18)
+                .addComponent(jScrollPane4, javax.swing.GroupLayout.PREFERRED_SIZE, 239, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(45, 45, 45)
                 .addGroup(PanelMostrarLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(jButton2)
                     .addComponent(recargar)
                     .addComponent(mostrarBotom))
-                .addGap(35, 35, 35))
+                .addGap(120, 120, 120))
         );
 
         jTabbedPane1.addTab("tab2", PanelMostrar);
@@ -455,7 +464,7 @@ public class PagPrincipal extends javax.swing.JFrame {
                 .addContainerGap())
             .addGroup(jPanel4Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                 .addGroup(jPanel4Layout.createSequentialGroup()
-                    .addComponent(jTabbedPane1, javax.swing.GroupLayout.DEFAULT_SIZE, 834, Short.MAX_VALUE)
+                    .addComponent(jTabbedPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 834, Short.MAX_VALUE)
                     .addContainerGap()))
         );
         jPanel4Layout.setVerticalGroup(
@@ -644,9 +653,10 @@ public class PagPrincipal extends javax.swing.JFrame {
     private javax.swing.JPanel jPanel5;
     private javax.swing.JScrollPane jScrollPane1;
     private javax.swing.JScrollPane jScrollPane2;
-    private javax.swing.JScrollPane jScrollPane3;
+    private javax.swing.JScrollPane jScrollPane4;
     private javax.swing.JTabbedPane jTabbedPane1;
     private javax.swing.JTable jTable1;
+    private javax.swing.JTable jTable2;
     private javax.swing.JButton limpiarBotones;
     private javax.swing.JButton modificarP;
     private javax.swing.JButton mostrarBotom;
@@ -654,6 +664,5 @@ public class PagPrincipal extends javax.swing.JFrame {
     private javax.swing.JTextField nombreProducto;
     private javax.swing.JTextField precioProducto;
     private javax.swing.JButton recargar;
-    private javax.swing.JTable tablaProducto;
     // End of variables declaration//GEN-END:variables
 }
