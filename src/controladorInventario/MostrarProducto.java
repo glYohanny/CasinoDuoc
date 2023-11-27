@@ -22,7 +22,12 @@ public class MostrarProducto extends Registro {
     public MostrarProducto() {
     }
 
-    public void mostrar(JTable tabla) {
+    public void mostrar(JTable tabla,String buscar) {
+         String WHERE=buscar;
+         if(!"".equals(WHERE)){
+             int campo=Integer.parseInt(WHERE);
+             WHERE="WHERE idproducto="+campo;
+         }
         try {
             DefaultTableModel modelo = new DefaultTableModel();
             tabla.setModel(modelo);
@@ -30,12 +35,14 @@ public class MostrarProducto extends Registro {
             ResultSet rs=null;
             Conexion conn=new Conexion();
             Connection con= conn.conexionBD();
-            String sql="SELECT idproducto,nombre,precio,cantidad,clase FROM producto.producto";
+            String sql="SELECT idproducto,nombre,concat('$',precio),cantidad,clase FROM producto.producto "+WHERE;
             ps= con.prepareStatement(sql);
             rs= ps.executeQuery();
             java.sql.ResultSetMetaData rsMd= rs.getMetaData();
             int cantidadColumnas=rsMd.getColumnCount();
-
+           
+            
+            
             modelo.addColumn("idProducto");
             modelo.addColumn("nombre");
             modelo.addColumn("precio");
