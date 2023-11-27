@@ -34,8 +34,6 @@ public class InsertarProducto extends Registro {
             preparar.setInt(3, canProc);
             preparar.setString(4, clasProc);
             preparar.executeUpdate();
-            preparar.close();
-            con.close();
             System.out.println("nice");
 
         } catch (SQLException ex) {

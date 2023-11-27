@@ -19,7 +19,6 @@ public class Registro {
       EliminarProducto delet=new EliminarProducto();
       MostrarProducto show=new MostrarProducto();
       
-      show.filtroSql("B");
       
         
     }
