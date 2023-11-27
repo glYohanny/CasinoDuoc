@@ -32,12 +32,6 @@ public class PagPrincipal extends javax.swing.JFrame {
     Object[] producto = new Object[5];
     public PagPrincipal() {
         initComponents();
-        setLocationRelativeTo(null);
-       
-        modelo = (DefaultTableModel) tablaProducto.getModel();
-
-        wach.mostrar(modelo, tablaProducto,producto);
-
     }
 
     @SuppressWarnings("unchecked")
@@ -74,7 +68,6 @@ public class PagPrincipal extends javax.swing.JFrame {
         mostrarBotom = new javax.swing.JButton();
         jButton2 = new javax.swing.JButton();
         recargar = new javax.swing.JButton();
-        flitroClaseBox = new javax.swing.JComboBox<>();
         jScrollPane4 = new javax.swing.JScrollPane();
         jTable2 = new javax.swing.JTable();
         PanelEliminar = new javax.swing.JPanel();
@@ -315,13 +308,6 @@ public class PagPrincipal extends javax.swing.JFrame {
             }
         });
 
-        flitroClaseBox.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Bebida", "Comida", "" }));
-        flitroClaseBox.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                flitroClaseBoxActionPerformed(evt);
-            }
-        });
-
         jTable2.setModel(new javax.swing.table.DefaultTableModel(
             new Object [][] {
                 {null, null, null, null},
@@ -350,12 +336,9 @@ public class PagPrincipal extends javax.swing.JFrame {
                         .addGap(58, 58, 58)
                         .addComponent(jButton2)))
                 .addGap(769, 769, 769)
-                .addGroup(PanelMostrarLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addGroup(PanelMostrarLayout.createSequentialGroup()
-                        .addComponent(recargar)
-                        .addGap(39, 39, 39)
-                        .addComponent(mostrarBotom))
-                    .addComponent(flitroClaseBox, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addComponent(recargar)
+                .addGap(39, 39, 39)
+                .addComponent(mostrarBotom)
                 .addGap(0, 34, Short.MAX_VALUE))
             .addGroup(PanelMostrarLayout.createSequentialGroup()
                 .addGap(74, 74, 74)
@@ -368,8 +351,7 @@ public class PagPrincipal extends javax.swing.JFrame {
                 .addGap(50, 50, 50)
                 .addGroup(PanelMostrarLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(idtxt, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(jLabel1)
-                    .addComponent(flitroClaseBox, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addComponent(jLabel1))
                 .addGap(18, 18, 18)
                 .addComponent(jScrollPane4, javax.swing.GroupLayout.PREFERRED_SIZE, 239, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addGap(45, 45, 45)
@@ -554,22 +536,38 @@ public class PagPrincipal extends javax.swing.JFrame {
     }//GEN-LAST:event_idtxtActionPerformed
 
     private void mostrarBotomActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_mostrarBotomActionPerformed
-/*        String filtro = flitroClaseBox.getSelectedItem().toString();
-        if (filtro.equals("Comida")) {
-            try {
-                wach.FiltroProducto("C", modelo, jTable1);
-            } catch (SQLException ex) {
-                Logger.getLogger(PagPrincipal.class.getName()).log(Level.SEVERE, null, ex);
+try {
+            DefaultTableModel modelo = new DefaultTableModel();
+            jTable2.setModel(modelo);
+            PreparedStatement ps = null;
+            ResultSet rs=null;
+            Conexion conn=new Conexion();
+            Connection con= conn.conexionBD();
+            String sql="SELECT idproducto,nombre,precio,cantidad,clase FROM producto.producto";
+            ps= con.prepareStatement(sql);
+            rs= ps.executeQuery();
+            java.sql.ResultSetMetaData rsMd= rs.getMetaData();
+            int cantidadColumnas=rsMd.getColumnCount();
+
+            modelo.addColumn("idProducto");
+            modelo.addColumn("nombre");
+            modelo.addColumn("precio");
+            modelo.addColumn("cantidad");
+            modelo.addColumn("clase");
+
+            while(rs.next()){
+                Object[] filas = new Object[cantidadColumnas];
+                for (int i=0;  i< cantidadColumnas;i++){
+                    filas[i]=rs.getObject(i+1);
+
+                }
+                modelo.addRow(filas);
             }
-        }else {
-            try {
-                wach.FiltroProducto("B", modelo, jTable1);
-            } catch (SQLException ex) {
-                Logger.getLogger(PagPrincipal.class.getName()).log(Level.SEVERE, null, ex);
-            }
+
+        } catch (SQLException ex) {
+            System.out.println("Error al conectar a la base de datos: " + ex.getMessage());
+
         }
-*/
-    wach.reset(producto, modelo);
     }//GEN-LAST:event_mostrarBotomActionPerformed
 
     private void eliminarProductoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_eliminarProductoActionPerformed
@@ -636,7 +634,6 @@ public class PagPrincipal extends javax.swing.JFrame {
     private javax.swing.JLabel confirmacionEl;
     private javax.swing.JButton eliminarP;
     private javax.swing.JTextField eliminarProducto;
-    private javax.swing.JComboBox<String> flitroClaseBox;
     private javax.swing.JTextField idtxt;
     private javax.swing.JTextField imagenProducto;
     private javax.swing.JButton jButton2;
