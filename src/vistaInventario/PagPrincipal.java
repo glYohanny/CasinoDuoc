@@ -76,6 +76,7 @@ public class PagPrincipal extends javax.swing.JFrame {
         jScrollPane4 = new javax.swing.JScrollPane();
         jTable2 = new javax.swing.JTable();
         eliminar = new javax.swing.JButton();
+        Clase = new javax.swing.JComboBox<>();
         PanelEliminar = new javax.swing.JPanel();
         jLabel7 = new javax.swing.JLabel();
         eliminarProducto = new javax.swing.JTextField();
@@ -333,30 +334,34 @@ public class PagPrincipal extends javax.swing.JFrame {
             }
         });
 
+        Clase.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Item no selcionar", "Bebida", "Comida" }));
+
         javax.swing.GroupLayout PanelMostrarLayout = new javax.swing.GroupLayout(PanelMostrar);
         PanelMostrar.setLayout(PanelMostrarLayout);
         PanelMostrarLayout.setHorizontalGroup(
             PanelMostrarLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(PanelMostrarLayout.createSequentialGroup()
+                .addGap(58, 58, 58)
+                .addComponent(jButton2)
+                .addGap(18, 18, 18)
+                .addComponent(eliminar)
+                .addGap(733, 733, 733)
+                .addComponent(recargar)
+                .addGap(39, 39, 39)
+                .addComponent(mostrarBotom)
+                .addGap(0, 166, Short.MAX_VALUE))
+            .addGroup(PanelMostrarLayout.createSequentialGroup()
                 .addGroup(PanelMostrarLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addGroup(PanelMostrarLayout.createSequentialGroup()
+                        .addGap(74, 74, 74)
+                        .addComponent(jScrollPane4, javax.swing.GroupLayout.PREFERRED_SIZE, 643, javax.swing.GroupLayout.PREFERRED_SIZE))
                     .addGroup(PanelMostrarLayout.createSequentialGroup()
                         .addGap(41, 41, 41)
                         .addComponent(jLabel1)
                         .addGap(33, 33, 33)
-                        .addComponent(idtxt, javax.swing.GroupLayout.PREFERRED_SIZE, 160, javax.swing.GroupLayout.PREFERRED_SIZE))
-                    .addGroup(PanelMostrarLayout.createSequentialGroup()
-                        .addGap(58, 58, 58)
-                        .addComponent(jButton2)
-                        .addGap(18, 18, 18)
-                        .addComponent(eliminar)))
-                .addGap(769, 769, 769)
-                .addComponent(recargar)
-                .addGap(39, 39, 39)
-                .addComponent(mostrarBotom)
-                .addGap(0, 34, Short.MAX_VALUE))
-            .addGroup(PanelMostrarLayout.createSequentialGroup()
-                .addGap(74, 74, 74)
-                .addComponent(jScrollPane4, javax.swing.GroupLayout.PREFERRED_SIZE, 643, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addComponent(idtxt, javax.swing.GroupLayout.PREFERRED_SIZE, 160, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addGap(117, 117, 117)
+                        .addComponent(Clase, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)))
                 .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
         );
         PanelMostrarLayout.setVerticalGroup(
@@ -365,7 +370,8 @@ public class PagPrincipal extends javax.swing.JFrame {
                 .addGap(50, 50, 50)
                 .addGroup(PanelMostrarLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(idtxt, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(jLabel1))
+                    .addComponent(jLabel1)
+                    .addComponent(Clase, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addGap(18, 18, 18)
                 .addComponent(jScrollPane4, javax.swing.GroupLayout.PREFERRED_SIZE, 239, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addGap(45, 45, 45)
@@ -557,7 +563,8 @@ public class PagPrincipal extends javax.swing.JFrame {
 
     private void mostrarBotomActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_mostrarBotomActionPerformed
         String idt = idtxt.getText();
-        wach.mostrar(jTable2, idt);
+        String cat = this.Clase.getSelectedItem().toString();
+        wach.mostrar(jTable2, idt,cat);
     }//GEN-LAST:event_mostrarBotomActionPerformed
 
     private void eliminarProductoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_eliminarProductoActionPerformed
@@ -618,6 +625,7 @@ public class PagPrincipal extends javax.swing.JFrame {
     }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
+    private javax.swing.JComboBox<String> Clase;
     private javax.swing.JPanel PanelAgregar;
     private javax.swing.JPanel PanelEliminar;
     private javax.swing.JPanel PanelModificar;
