@@ -20,8 +20,8 @@ public class Conexion {
      public Connection conexionBD() {
         String url = "jdbc:mysql://localhost:3306/producto";
         String usuario = "root";
-        String contraseña = "06Villegas#ñTorres2004";
-        //String contraseña = "";
+        //String contraseña = "06Villegas#ñTorres2004";
+        String contraseña = "";
         Connection conexion = null;
         try {
 

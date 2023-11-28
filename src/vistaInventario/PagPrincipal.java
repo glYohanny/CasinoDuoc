@@ -77,13 +77,21 @@ public class PagPrincipal extends javax.swing.JFrame {
         jTable2 = new javax.swing.JTable();
         eliminar = new javax.swing.JButton();
         Clase = new javax.swing.JComboBox<>();
-        PanelEliminar = new javax.swing.JPanel();
-        jLabel7 = new javax.swing.JLabel();
-        eliminarProducto = new javax.swing.JTextField();
-        confirmacionEl = new javax.swing.JLabel();
-        jScrollPane2 = new javax.swing.JScrollPane();
-        jTable1 = new javax.swing.JTable();
         PanelModificar = new javax.swing.JPanel();
+        jScrollPane2 = new javax.swing.JScrollPane();
+        modificarT = new javax.swing.JTable();
+        nombreP = new javax.swing.JTextField();
+        precioP = new javax.swing.JTextField();
+        cantidadP = new javax.swing.JTextField();
+        claseP = new javax.swing.JTextField();
+        jLabel7 = new javax.swing.JLabel();
+        jLabel8 = new javax.swing.JLabel();
+        jLabel9 = new javax.swing.JLabel();
+        idP = new javax.swing.JTextField();
+        jLabel11 = new javax.swing.JLabel();
+        jLabel12 = new javax.swing.JLabel();
+        saveP = new javax.swing.JButton();
+        modiP = new javax.swing.JButton();
 
         jList1.setModel(new javax.swing.AbstractListModel<String>() {
             String[] strings = { "Item 1", "Item 2", "Item 3", "Item 4", "Item 5" };
@@ -385,17 +393,9 @@ public class PagPrincipal extends javax.swing.JFrame {
 
         jTabbedPane1.addTab("tab2", PanelMostrar);
 
-        PanelEliminar.setBackground(new java.awt.Color(255, 153, 0));
+        PanelModificar.setBackground(new java.awt.Color(255, 153, 0));
 
-        jLabel7.setText("ID PRODUCTO A ELIMINAR");
-
-        eliminarProducto.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                eliminarProductoActionPerformed(evt);
-            }
-        });
-
-        jTable1.setModel(new javax.swing.table.DefaultTableModel(
+        modificarT.setModel(new javax.swing.table.DefaultTableModel(
             new Object [][] {
                 {null, null, null, null},
                 {null, null, null, null},
@@ -406,54 +406,123 @@ public class PagPrincipal extends javax.swing.JFrame {
                 "Title 1", "Title 2", "Title 3", "Title 4"
             }
         ));
-        jScrollPane2.setViewportView(jTable1);
+        modificarT.addAncestorListener(new javax.swing.event.AncestorListener() {
+            public void ancestorAdded(javax.swing.event.AncestorEvent evt) {
+                modificarTAncestorAdded(evt);
+            }
+            public void ancestorMoved(javax.swing.event.AncestorEvent evt) {
+            }
+            public void ancestorRemoved(javax.swing.event.AncestorEvent evt) {
+            }
+        });
+        modificarT.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                modificarTMouseClicked(evt);
+            }
+        });
+        jScrollPane2.setViewportView(modificarT);
 
-        javax.swing.GroupLayout PanelEliminarLayout = new javax.swing.GroupLayout(PanelEliminar);
-        PanelEliminar.setLayout(PanelEliminarLayout);
-        PanelEliminarLayout.setHorizontalGroup(
-            PanelEliminarLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(PanelEliminarLayout.createSequentialGroup()
-                .addGroup(PanelEliminarLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addGroup(PanelEliminarLayout.createSequentialGroup()
-                        .addGap(42, 42, 42)
-                        .addComponent(jLabel7)
-                        .addGap(18, 18, 18)
-                        .addComponent(eliminarProducto, javax.swing.GroupLayout.PREFERRED_SIZE, 176, javax.swing.GroupLayout.PREFERRED_SIZE))
-                    .addGroup(PanelEliminarLayout.createSequentialGroup()
-                        .addGap(68, 68, 68)
-                        .addComponent(confirmacionEl, javax.swing.GroupLayout.PREFERRED_SIZE, 676, javax.swing.GroupLayout.PREFERRED_SIZE)))
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addComponent(jScrollPane2, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addContainerGap(106, Short.MAX_VALUE))
-        );
-        PanelEliminarLayout.setVerticalGroup(
-            PanelEliminarLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(PanelEliminarLayout.createSequentialGroup()
-                .addGroup(PanelEliminarLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addGroup(PanelEliminarLayout.createSequentialGroup()
-                        .addGap(44, 44, 44)
-                        .addGroup(PanelEliminarLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                            .addComponent(jLabel7)
-                            .addComponent(eliminarProducto, javax.swing.GroupLayout.PREFERRED_SIZE, 36, javax.swing.GroupLayout.PREFERRED_SIZE))
-                        .addGap(57, 57, 57)
-                        .addComponent(confirmacionEl, javax.swing.GroupLayout.PREFERRED_SIZE, 49, javax.swing.GroupLayout.PREFERRED_SIZE))
-                    .addGroup(PanelEliminarLayout.createSequentialGroup()
-                        .addGap(16, 16, 16)
-                        .addComponent(jScrollPane2, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)))
-                .addContainerGap(528, Short.MAX_VALUE))
-        );
+        cantidadP.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                cantidadPActionPerformed(evt);
+            }
+        });
 
-        jTabbedPane1.addTab("tab3", PanelEliminar);
+        claseP.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                clasePActionPerformed(evt);
+            }
+        });
+
+        jLabel7.setText("Nombre:");
+
+        jLabel8.setText("Cantidad:");
+
+        jLabel9.setText("Precio:");
+
+        jLabel11.setText("ID:");
+
+        jLabel12.setText("Clase:");
+
+        saveP.setText("Guardar");
+        saveP.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                savePActionPerformed(evt);
+            }
+        });
+
+        modiP.setText("Modificar");
 
         javax.swing.GroupLayout PanelModificarLayout = new javax.swing.GroupLayout(PanelModificar);
         PanelModificar.setLayout(PanelModificarLayout);
         PanelModificarLayout.setHorizontalGroup(
             PanelModificarLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 1308, Short.MAX_VALUE)
+            .addGroup(PanelModificarLayout.createSequentialGroup()
+                .addGap(30, 30, 30)
+                .addComponent(jScrollPane2, javax.swing.GroupLayout.PREFERRED_SIZE, 603, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGroup(PanelModificarLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addGroup(PanelModificarLayout.createSequentialGroup()
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 35, Short.MAX_VALUE)
+                        .addGroup(PanelModificarLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, PanelModificarLayout.createSequentialGroup()
+                                .addGroup(PanelModificarLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
+                                    .addComponent(jLabel11)
+                                    .addComponent(jLabel7)
+                                    .addComponent(jLabel9))
+                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                                .addGroup(PanelModificarLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
+                                    .addComponent(nombreP, javax.swing.GroupLayout.DEFAULT_SIZE, 102, Short.MAX_VALUE)
+                                    .addComponent(idP)
+                                    .addComponent(precioP)))
+                            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, PanelModificarLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                                .addComponent(modiP)
+                                .addGroup(PanelModificarLayout.createSequentialGroup()
+                                    .addGroup(PanelModificarLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                                        .addComponent(jLabel8, javax.swing.GroupLayout.Alignment.TRAILING)
+                                        .addComponent(jLabel12, javax.swing.GroupLayout.Alignment.TRAILING))
+                                    .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                                    .addGroup(PanelModificarLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
+                                        .addComponent(claseP, javax.swing.GroupLayout.DEFAULT_SIZE, 102, Short.MAX_VALUE)
+                                        .addComponent(cantidadP)))))
+                        .addGap(481, 481, 481))
+                    .addGroup(PanelModificarLayout.createSequentialGroup()
+                        .addGap(181, 181, 181)
+                        .addComponent(saveP)
+                        .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))))
         );
         PanelModificarLayout.setVerticalGroup(
             PanelModificarLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 971, Short.MAX_VALUE)
+            .addGroup(PanelModificarLayout.createSequentialGroup()
+                .addGroup(PanelModificarLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addGroup(PanelModificarLayout.createSequentialGroup()
+                        .addGap(27, 27, 27)
+                        .addGroup(PanelModificarLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                            .addComponent(idP, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addComponent(jLabel11))
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                        .addGroup(PanelModificarLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                            .addComponent(nombreP, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addComponent(jLabel7))
+                        .addGap(18, 18, 18)
+                        .addGroup(PanelModificarLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                            .addComponent(precioP, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addComponent(jLabel9))
+                        .addGap(18, 18, 18)
+                        .addGroup(PanelModificarLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                            .addComponent(cantidadP, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addComponent(jLabel8))
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                        .addGroup(PanelModificarLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                            .addComponent(claseP, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addComponent(jLabel12))
+                        .addGap(54, 54, 54)
+                        .addGroup(PanelModificarLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                            .addComponent(saveP)
+                            .addComponent(modiP)))
+                    .addGroup(PanelModificarLayout.createSequentialGroup()
+                        .addGap(18, 18, 18)
+                        .addComponent(jScrollPane2, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                .addContainerGap(522, Short.MAX_VALUE))
         );
 
         jTabbedPane1.addTab("tab4", PanelModificar);
@@ -467,7 +536,7 @@ public class PagPrincipal extends javax.swing.JFrame {
                 .addContainerGap())
             .addGroup(jPanel4Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                 .addGroup(jPanel4Layout.createSequentialGroup()
-                    .addComponent(jTabbedPane1, javax.swing.GroupLayout.DEFAULT_SIZE, 834, Short.MAX_VALUE)
+                    .addComponent(jTabbedPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 834, Short.MAX_VALUE)
                     .addContainerGap()))
         );
         jPanel4Layout.setVerticalGroup(
@@ -567,10 +636,6 @@ public class PagPrincipal extends javax.swing.JFrame {
         wach.mostrar(jTable2, idt,cat);
     }//GEN-LAST:event_mostrarBotomActionPerformed
 
-    private void eliminarProductoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_eliminarProductoActionPerformed
-        jTabbedPane1.setSelectedIndex(2);
-    }//GEN-LAST:event_eliminarProductoActionPerformed
-
     private void limpiarBotonesActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_limpiarBotonesActionPerformed
         nombreProducto.setText("");
         precioProducto.setText("");
@@ -592,6 +657,107 @@ public class PagPrincipal extends javax.swing.JFrame {
         delet.EliminarProducto(idInt);
         JOptionPane.showMessageDialog(null, "EL elemento a sido eliminado correctamente");
     }//GEN-LAST:event_eliminarActionPerformed
+
+    private void modificarTAncestorAdded(javax.swing.event.AncestorEvent evt) {//GEN-FIRST:event_modificarTAncestorAdded
+ try {
+            DefaultTableModel modelo = new DefaultTableModel();
+            modificarT.setModel(modelo);
+            PreparedStatement ps = null;
+            ResultSet rs = null;
+            Conexion conn = new Conexion();
+            Connection con = conn.conexionBD();
+            String sql = "SELECT idproducto,nombre,concat('$',precio),cantidad,clase FROM producto.producto ";
+            ps = con.prepareStatement(sql);
+            rs = ps.executeQuery();
+            java.sql.ResultSetMetaData rsMd = rs.getMetaData();
+            int cantidadColumnas = rsMd.getColumnCount();
+
+            modelo.addColumn("idProducto");
+            modelo.addColumn("nombre");
+            modelo.addColumn("precio");
+            modelo.addColumn("cantidad");
+            modelo.addColumn("clase");
+
+            while (rs.next()) {
+                Object[] filas = new Object[cantidadColumnas];
+                for (int i = 0; i < cantidadColumnas; i++) {
+                    filas[i] = rs.getObject(i + 1);
+
+                }
+                modelo.addRow(filas);
+            }
+
+        } catch (SQLException ex) {
+            System.out.println("Error al conectar a la base de datos: " + ex.getMessage());
+
+        }        
+    }//GEN-LAST:event_modificarTAncestorAdded
+
+    private void cantidadPActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_cantidadPActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_cantidadPActionPerformed
+
+    private void clasePActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_clasePActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_clasePActionPerformed
+
+    private void modificarTMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_modificarTMouseClicked
+        PreparedStatement ps = null;
+        ResultSet rs = null;
+        try{
+            Conexion conn = new Conexion();
+            Connection con = conn.conexionBD();
+            
+            int fila=modificarT.getSelectedRow();
+            String idproducto=modificarT.getValueAt(fila,0).toString();
+            
+            ps=con.prepareStatement("SELECT idproducto,nombre,precio,cantidad,clase FROM producto.producto WHERE idproducto=?");
+            
+            ps.setString(1,idproducto);
+            
+            rs=ps.executeQuery();
+            
+            while(rs.next()){
+                idP.setText(rs.getString("idproducto"));
+                nombreP.setText(rs.getString("nombre"));
+                precioP.setText(rs.getString("precio"));
+                cantidadP.setText(rs.getString("cantidad"));
+                claseP.setText(rs.getString("clase"));  
+            }    
+        }catch(SQLException ex){
+            System.out.println(ex.toString());
+        }
+    }//GEN-LAST:event_modificarTMouseClicked
+
+    private void savePActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_savePActionPerformed
+        PreparedStatement ps = null;
+        ResultSet rs = null;
+        
+        try{
+        Conexion conn = new Conexion();
+        Connection con = conn.conexionBD();
+        ps=con.prepareStatement("SELECT INTO producto.producto(nombre,precio,cantidad,clase) VALUES (?,?,?,?)");
+        ps.setString(1,nombreP.getText());
+        ps.setString(2,precioP.getText());
+        ps.setString(3,cantidadP.getText());
+        ps.setString(4,claseP.getText());  
+        
+        ps.execute();
+        
+        JOptionPane.showMessageDialog(null,"Producto Guardado Correctamente");
+        
+        Object[] fila= new Object[4];
+        fila[0]=nombreP.getText();
+        fila[1]=precioP.getText();
+        fila[2]=cantidadP.getText();
+        fila[3]=claseP.getText();
+        modelo.addRow(fila);  
+        }catch(Exception ex){
+            JOptionPane.showMessageDialog(null,"Error al guardar Producto");
+            System.out.println(ex);
+        }
+    
+    }//GEN-LAST:event_savePActionPerformed
 
     public static void main(String args[]) {
 
@@ -627,29 +793,33 @@ public class PagPrincipal extends javax.swing.JFrame {
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JComboBox<String> Clase;
     private javax.swing.JPanel PanelAgregar;
-    private javax.swing.JPanel PanelEliminar;
     private javax.swing.JPanel PanelModificar;
     private javax.swing.JPanel PanelMostrar;
     private javax.swing.JLabel agregado;
     private javax.swing.JButton agregarP;
     private javax.swing.JButton agregarProducto;
+    private javax.swing.JTextField cantidadP;
     private javax.swing.JTextField cantidadProducto;
     private javax.swing.JComboBox<String> categoriaBox;
-    private javax.swing.JLabel confirmacionEl;
+    private javax.swing.JTextField claseP;
     private javax.swing.JButton eliminar;
     private javax.swing.JButton eliminarP;
-    private javax.swing.JTextField eliminarProducto;
+    private javax.swing.JTextField idP;
     private javax.swing.JTextField idtxt;
     private javax.swing.JTextField imagenProducto;
     private javax.swing.JButton jButton2;
     private javax.swing.JColorChooser jColorChooser1;
     private javax.swing.JLabel jLabel1;
+    private javax.swing.JLabel jLabel11;
+    private javax.swing.JLabel jLabel12;
     private javax.swing.JLabel jLabel2;
     private javax.swing.JLabel jLabel3;
     private javax.swing.JLabel jLabel4;
     private javax.swing.JLabel jLabel5;
     private javax.swing.JLabel jLabel6;
     private javax.swing.JLabel jLabel7;
+    private javax.swing.JLabel jLabel8;
+    private javax.swing.JLabel jLabel9;
     private javax.swing.JList<String> jList1;
     private javax.swing.JPanel jPanel4;
     private javax.swing.JPanel jPanel5;
@@ -657,14 +827,18 @@ public class PagPrincipal extends javax.swing.JFrame {
     private javax.swing.JScrollPane jScrollPane2;
     private javax.swing.JScrollPane jScrollPane4;
     private javax.swing.JTabbedPane jTabbedPane1;
-    private javax.swing.JTable jTable1;
     private javax.swing.JTable jTable2;
     private javax.swing.JButton limpiarBotones;
+    private javax.swing.JButton modiP;
     private javax.swing.JButton modificarP;
+    private javax.swing.JTable modificarT;
     private javax.swing.JButton mostrarBotom;
     private javax.swing.JButton mostrarP;
+    private javax.swing.JTextField nombreP;
     private javax.swing.JTextField nombreProducto;
+    private javax.swing.JTextField precioP;
     private javax.swing.JTextField precioProducto;
     private javax.swing.JButton recargar;
+    private javax.swing.JButton saveP;
     // End of variables declaration//GEN-END:variables
 }

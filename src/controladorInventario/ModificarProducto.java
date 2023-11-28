@@ -21,6 +21,8 @@ public class ModificarProducto extends Registro {
     PreparedStatement preparar = null;
 
     public ModificarProducto() {
+        
+        
     }
     
 }
