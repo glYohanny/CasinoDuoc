@@ -13,7 +13,7 @@ import java.sql.SQLException;
  *
  * @author pedro
  */
-public class EliminarProducto extends Registro {
+public class EliminarProducto {
 
     public void EliminarProducto(int id) {
         Conexion conex = new Conexion();

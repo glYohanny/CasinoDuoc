@@ -13,7 +13,7 @@ import java.sql.SQLException;
  *
  * @author pedro
  */
-public class InsertarProducto extends Registro {
+public class InsertarProducto{
 
     Conexion conex = new Conexion();
     Connection con = conex.conexionBD();

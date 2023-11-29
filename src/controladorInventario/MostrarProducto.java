@@ -17,7 +17,7 @@ import javax.swing.table.DefaultTableModel;
  *
  * @author pedro
  */
-public class MostrarProducto extends Registro {
+public class MostrarProducto{
 
     public MostrarProducto() {
     }
