@@ -5,7 +5,9 @@
 
 package inventarioduoc;
 
-import conexionBaseDeDatos.Conexion;
+import vistaInventario.Inventario;
+
+
 
 
 
@@ -19,7 +21,8 @@ public class InventarioDuoc {
      * @param args the command line arguments
      */
     public static void main(String[] args) {
-
+        Inventario inicio=new Inventario();
+        inicio.setVisible(true);
     }
     
 }
